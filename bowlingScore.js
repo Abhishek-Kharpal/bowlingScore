@@ -108,6 +108,12 @@ let bestScore = (rolls) =>{
           throw new Error('Rolls contains more than 10 frames');
         }
         ++currIndex;
+        if(i>=1){
+          if((result-prevRes)>maxRes){
+            maxRes=(result-prevRes)
+          }
+          prevRes=result;
+        }
         if((i==9)&&(moveIndex!==rolls.length)){
           throw new Error('Rolls contains more than 10 frames');
         }
@@ -125,6 +131,12 @@ let bestScore = (rolls) =>{
           if(moveIndex<rolls.length){
             result+=rolls[moveIndex];
           }
+          if(i>=1){
+            if((result-prevRes)>maxRes){
+              maxRes=(result-prevRes)
+            }
+            prevRes=result;
+          }
           else{
             throw new Error('Rolls contains more than 10 frames');
           }
@@ -132,6 +144,12 @@ let bestScore = (rolls) =>{
         else{
           result+=rolls[moveIndex]+rolls[moveIndex+1];
           currIndex+=2;
+          if(i>=1){
+            if((result-prevRes)>maxRes){
+              maxRes=(result-prevRes)
+            }
+            prevRes=result;
+          }
         }
       }
       else{
@@ -144,4 +162,8 @@ let bestScore = (rolls) =>{
     }
     return maxRes;
 }
-console.log(bestScore([6, 4, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]))
+
+
+module.exports={
+  bestScore,score 
+}
