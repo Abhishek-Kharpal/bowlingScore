@@ -24,6 +24,10 @@ describe('bowlingScore', () => {
 			expect(()=>score(243)).toThrow('Rolls not an array');
 		});
 
+        it('should throw error when roll dont have 10 frame',()=>{
+			expect(()=>score([1,2,3,5,5,6,7,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,88,8,8,8,8,8,8,8,8,8,8,8,8,8,8])).toThrow('Rolls contains more than 10 frames');
+		});
+
 
 	});
 });
